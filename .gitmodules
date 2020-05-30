@@ -1,0 +1,3 @@
+[submodule "aur.git"]
+	path = aur.git
+	url = ssh://aur@aur.archlinux.org/obs-multi-rtmp-git.git
