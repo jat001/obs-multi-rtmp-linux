@@ -8,11 +8,11 @@ RUN pacman -Syu base-devel namcap --needed --noconfirm
 RUN echo 'nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 USER nobody
-COPY --chown=nobody:nobody aur.git /code
+COPY --chown=nobody:nobody aur /code
 WORKDIR /code
 
 RUN ALL_PROXY=socks5h://host.docker.internal:1080 makepkg -si --needed --noconfirm
 
 RUN namcap PKGBUILD
-RUN pacman -Ql obs-multi-rtmp-git
+RUN pacman -Ql obs-multi-rtmp
 RUN makepkg --printsrcinfo
